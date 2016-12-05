@@ -11,7 +11,6 @@ import Decodable
 import RealmSwift
 import Opera
 
-
 final class User: Object {
     
     dynamic var id: Int = Int.min
@@ -45,7 +44,7 @@ final class User: Object {
 
 extension User: Decodable, OperaDecodable {
 
-    static func decode(_ j: AnyObject) throws -> User {
+    static func decode(_ j: Any) throws -> User {
         return try User(id: j => "id",
                  email: j =>? "email",
        avatarUrlString: j =>? "avatar_url",
